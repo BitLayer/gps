@@ -36,30 +36,30 @@ const Notification: React.FC<NotificationProps> = ({
   const getIcon = () => {
     switch (type) {
       case 'success':
-        return <CheckCircle className="w-4 h-4 text-green-600" />;
+        return <CheckCircle className="w-4 h-4 text-brand-600" />;
       case 'error':
-        return <XCircle className="w-4 h-4 text-red-600" />;
+        return <XCircle className="w-4 h-4 text-fresh-red-600" />;
       case 'warning':
-        return <AlertCircle className="w-4 h-4 text-yellow-600" />;
+        return <AlertCircle className="w-4 h-4 text-zesty-600" />;
       case 'info':
-        return <Info className="w-4 h-4 text-blue-600" />;
+        return <Info className="w-4 h-4 text-cool-blue-600" />;
       default:
-        return <Info className="w-4 h-4 text-blue-600" />;
+        return <Info className="w-4 h-4 text-cool-blue-600" />;
     }
   };
 
   const getIconBgColor = () => {
     switch (type) {
       case 'success':
-        return 'bg-green-100';
+        return 'bg-brand-100';
       case 'error':
-        return 'bg-red-100';
+        return 'bg-fresh-red-100';
       case 'warning':
-        return 'bg-yellow-100';
+        return 'bg-zesty-100';
       case 'info':
-        return 'bg-blue-100';
+        return 'bg-cool-blue-100';
       default:
-        return 'bg-blue-100';
+        return 'bg-cool-blue-100';
     }
   };
 
@@ -67,7 +67,7 @@ const Notification: React.FC<NotificationProps> = ({
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[9999] pointer-events-none">
       <div
         className={`
-          bg-white rounded-full shadow-lg border border-gray-200
+          bg-white rounded-full shadow-lg border border-gray-light
           min-w-[280px] max-w-md mx-auto pointer-events-auto
           transform transition-all duration-300 ease-out
           ${isAnimating && isVisible 
@@ -86,7 +86,7 @@ const Notification: React.FC<NotificationProps> = ({
 
             {/* Message */}
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900 leading-tight">
+              <p className="text-sm font-medium text-dark-text leading-tight">
                 {message}
               </p>
             </div>
@@ -97,7 +97,7 @@ const Notification: React.FC<NotificationProps> = ({
                 setIsAnimating(false);
                 setTimeout(onClose, 300);
               }}
-              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200 p-1 rounded-full hover:bg-gray-100"
+              className="flex-shrink-0 text-gray-medium hover:text-gray-dark transition-colors duration-200 p-1 rounded-full hover:bg-gray-light"
             >
               <X className="w-3 h-3" />
             </button>
