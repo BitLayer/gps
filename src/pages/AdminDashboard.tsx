@@ -309,17 +309,17 @@ const AdminDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-off-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading users...</p>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-brand-600 mx-auto"></div>
+          <p className="mt-4 text-gray-dark">Loading users...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-off-white">
       {/* Notification Component */}
       {notification && (
         <Notification
@@ -331,7 +331,7 @@ const AdminDashboard: React.FC = () => {
         />
       )}
 
-      <nav className="bg-white shadow-sm border-b">
+      <nav className="bg-white shadow-sm border-b border-gray-light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-4">
@@ -340,19 +340,19 @@ const AdminDashboard: React.FC = () => {
                 alt="Ghatpar.com" 
                 className="h-12 w-auto sm:h-14 md:h-16"
               />
-              <span className="text-xl font-bold text-emerald-600">Admin Dashboard</span>
+              <span className="text-xl font-bold text-brand-600">Admin Dashboard</span>
             </div>
             <div className="flex items-center space-x-4">
               <button
                 onClick={handleRefresh}
-                className="flex items-center space-x-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                className="flex items-center space-x-2 px-4 py-2 bg-appetite-500 text-white rounded-lg hover:bg-appetite-600 transition-colors"
               >
                 <RefreshCw className="w-4 h-4" />
                 <span>Refresh</span>
               </button>
               <button
                 onClick={logout}
-                className="text-red-600 hover:text-red-800 font-medium transition-colors"
+                className="text-fresh-red-600 hover:text-fresh-red-800 font-medium transition-colors"
               >
                 Logout
               </button>
@@ -363,11 +363,11 @@ const AdminDashboard: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-6">
         {error && (
-          <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
-            <div className="text-red-800">{error}</div>
+          <div className="mb-6 bg-fresh-red-50 border border-fresh-red-200 rounded-lg p-4">
+            <div className="text-fresh-red-800">{error}</div>
             <button
               onClick={handleRefresh}
-              className="mt-2 text-red-600 hover:text-red-800 underline"
+              className="mt-2 text-fresh-red-600 hover:text-fresh-red-800 underline"
             >
               Try again
             </button>
@@ -375,13 +375,13 @@ const AdminDashboard: React.FC = () => {
         )}
 
         <div className="mb-6">
-          <div className="flex space-x-4 border-b">
+          <div className="flex space-x-4 border-b border-gray-light">
             <button
               onClick={() => setActiveTab('customers')}
               className={`pb-2 px-4 font-medium transition-colors ${
                 activeTab === 'customers'
-                  ? 'border-b-2 border-emerald-600 text-emerald-600'
-                  : 'text-gray-600 hover:text-emerald-600'
+                  ? 'border-b-2 border-brand-600 text-brand-600'
+                  : 'text-gray-dark hover:text-brand-600'
               }`}
             >
               <Users className="w-4 h-4 inline mr-2" />
@@ -391,8 +391,8 @@ const AdminDashboard: React.FC = () => {
               onClick={() => setActiveTab('agents')}
               className={`pb-2 px-4 font-medium transition-colors ${
                 activeTab === 'agents'
-                  ? 'border-b-2 border-emerald-600 text-emerald-600'
-                  : 'text-gray-600 hover:text-emerald-600'
+                  ? 'border-b-2 border-brand-600 text-brand-600'
+                  : 'text-gray-dark hover:text-brand-600'
               }`}
             >
               <UserCheck className="w-4 h-4 inline mr-2" />
@@ -402,8 +402,8 @@ const AdminDashboard: React.FC = () => {
               onClick={() => setActiveTab('agentPayments')}
               className={`pb-2 px-4 font-medium transition-colors ${
                 activeTab === 'agentPayments'
-                  ? 'border-b-2 border-emerald-600 text-emerald-600'
-                  : 'text-gray-600 hover:text-emerald-600'
+                  ? 'border-b-2 border-brand-600 text-brand-600'
+                  : 'text-gray-dark hover:text-brand-600'
               }`}
             >
               <CreditCard className="w-4 h-4 inline mr-2" />
@@ -416,7 +416,7 @@ const AdminDashboard: React.FC = () => {
           <div className="mb-4 flex justify-end">
             <button
               onClick={handleSetAllPaid}
-              className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+              className="bg-appetite-500 text-white px-4 py-2 rounded-lg hover:bg-appetite-600 transition-colors"
             >
               Set All Paid
             </button>
@@ -425,95 +425,95 @@ const AdminDashboard: React.FC = () => {
 
         {users.length === 0 ? (
           <div className="text-center py-12">
-            <Users className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-600 mb-2">No Users Found</h3>
-            <p className="text-gray-500">Users will appear here once they register</p>
+            <Users className="w-16 h-16 text-gray-medium mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-dark mb-2">No Users Found</h3>
+            <p className="text-gray-medium">Users will appear here once they register</p>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+          <div className="bg-white rounded-lg shadow overflow-x-auto border border-gray-light">
+            <table className="min-w-full divide-y divide-gray-light">
+              <thead className="bg-off-white">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                     No.
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                     UID
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                     Name
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                     Email
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                     Phone
                   </th>
                   {(activeTab === 'customers' || activeTab === 'agents') && (
                     <>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Verification
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Role
                       </th>
                     </>
                   )}
                   {activeTab === 'agents' && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                       Rating
                     </th>
                   )}
                   {activeTab === 'agentPayments' && (
                     <>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Today's Income
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Today's Payment
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Transaction ID
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Match Status
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                         Payment Status
                       </th>
                     </>
                   )}
                   {(activeTab === 'customers' || activeTab === 'agents') && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-medium uppercase tracking-wider">
                       Actions
                     </th>
                   )}
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-gray-light">
                 {(activeTab === 'customers' ? customers : agents).map((user, index) => (
-                  <tr key={user.uid} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <tr key={user.uid} className="hover:bg-off-white transition-colors">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                       {index + 1}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                       <div className="flex items-center space-x-2">
                         <span className="font-mono text-xs">{user.uid.slice(0, 8)}...</span>
                         <button
                           onClick={() => copyUID(user.uid)}
-                          className="text-gray-400 hover:text-gray-600 transition-colors"
+                          className="text-gray-medium hover:text-gray-dark transition-colors"
                         >
                           <Copy className="w-4 h-4" />
                         </button>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                       {user.name || 'N/A'}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                       {user.email || 'N/A'}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                       {user.phone || 'N/A'}
                     </td>
                     {(activeTab === 'customers' || activeTab === 'agents') && (
@@ -522,32 +522,32 @@ const AdminDashboard: React.FC = () => {
                           <div className="flex items-center space-x-2">
                             <span className={`px-2 py-1 text-xs rounded-full ${
                               user.verified 
-                                ? 'bg-green-100 text-green-800' 
-                                : 'bg-red-100 text-red-800'
+                                ? 'bg-brand-100 text-brand-800' 
+                                : 'bg-fresh-red-100 text-fresh-red-800'
                             }`}>
                               {user.verified ? 'Verified' : 'Not Verified'}
                             </span>
                             <div className="flex space-x-1">
                               <button
                                 onClick={() => handleVerifyUser(user.uid, true)}
-                                className="bg-green-600 text-white px-2 py-1 text-xs rounded hover:bg-green-700 transition-colors"
+                                className="bg-brand-600 text-white px-2 py-1 text-xs rounded hover:bg-brand-700 transition-colors"
                               >
                                 ✓
                               </button>
                               <button
                                 onClick={() => handleVerifyUser(user.uid, false)}
-                                className="bg-red-600 text-white px-2 py-1 text-xs rounded hover:bg-red-700 transition-colors"
+                                className="bg-fresh-red-600 text-white px-2 py-1 text-xs rounded hover:bg-fresh-red-700 transition-colors"
                               >
                                 ✗
                               </button>
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                           <select
                             value={user.role}
                             onChange={(e) => handleRoleChange(user.uid, e.target.value as 'customer' | 'agent')}
-                            className="border rounded px-2 py-1 text-sm focus:ring-2 focus:ring-emerald-500 transition-colors"
+                            className="border border-gray-light rounded px-2 py-1 text-sm focus:ring-2 focus:ring-brand-500 transition-colors"
                           >
                             <option value="customer">Customer</option>
                             <option value="agent">Agent</option>
@@ -556,19 +556,19 @@ const AdminDashboard: React.FC = () => {
                       </>
                     )}
                     {activeTab === 'agents' && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                         {user.rating ? `${user.rating.toFixed(1)} (${user.totalRatings})` : 'No ratings'}
                       </td>
                     )}
                     {activeTab === 'agentPayments' && (
                       <>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          <span className="font-semibold text-green-600">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
+                          <span className="font-semibold text-brand-600">
                             ৳{calculateTodaysIncome(user.uid)}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          <span className="font-semibold text-emerald-600">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
+                          <span className="font-semibold text-appetite-600">
                             ৳{calculateTodaysPayment(user.uid)}
                           </span>
                         </td>
@@ -576,13 +576,13 @@ const AdminDashboard: React.FC = () => {
                           <div className="flex items-center space-x-2">
                             {user.transactionId ? (
                               <>
-                                <span className="text-sm font-mono bg-gray-100 px-2 py-1 rounded max-w-[120px] truncate" title={user.transactionId}>
+                                <span className="text-sm font-mono bg-gray-light px-2 py-1 rounded max-w-[120px] truncate" title={user.transactionId}>
                                   {user.transactionId}
                                 </span>
                                 <button
                                   onClick={() => copyTransactionId(user.transactionId!, user.uid)}
-                                  className={`text-gray-400 hover:text-gray-600 transition-colors ${
-                                    copySuccess === user.uid ? 'text-green-600' : ''
+                                  className={`text-gray-medium hover:text-gray-dark transition-colors ${
+                                    copySuccess === user.uid ? 'text-brand-600' : ''
                                   }`}
                                   title="Copy Transaction ID"
                                 >
@@ -590,7 +590,7 @@ const AdminDashboard: React.FC = () => {
                                 </button>
                               </>
                             ) : (
-                              <span className="text-sm text-gray-400">No Transaction ID</span>
+                              <span className="text-sm text-gray-medium">No Transaction ID</span>
                             )}
                           </div>
                         </td>
@@ -598,10 +598,10 @@ const AdminDashboard: React.FC = () => {
                           <div className="flex items-center space-x-2">
                             <span className={`px-2 py-1 text-xs rounded-full ${
                               user.matchStatus === 'matched' 
-                                ? 'bg-green-100 text-green-800' 
+                                ? 'bg-brand-100 text-brand-800' 
                                 : user.matchStatus === 'not_matched'
-                                ? 'bg-red-100 text-red-800'
-                                : 'bg-gray-100 text-gray-800'
+                                ? 'bg-fresh-red-100 text-fresh-red-800'
+                                : 'bg-gray-light text-gray-dark'
                             }`}>
                               {user.matchStatus === 'matched' ? 'Matched' : 
                                user.matchStatus === 'not_matched' ? 'Not Matched' : 'Pending'}
@@ -612,8 +612,8 @@ const AdminDashboard: React.FC = () => {
                                   onClick={() => handleMatchStatus(user.uid, 'matched')}
                                   className={`p-1 rounded text-white text-xs transition-colors ${
                                     user.matchStatus === 'matched' 
-                                      ? 'bg-green-700' 
-                                      : 'bg-green-600 hover:bg-green-700'
+                                      ? 'bg-brand-700' 
+                                      : 'bg-brand-600 hover:bg-brand-700'
                                   }`}
                                   title="Mark as Matched"
                                 >
@@ -623,8 +623,8 @@ const AdminDashboard: React.FC = () => {
                                   onClick={() => handleMatchStatus(user.uid, 'not_matched')}
                                   className={`p-1 rounded text-white text-xs transition-colors ${
                                     user.matchStatus === 'not_matched' 
-                                      ? 'bg-red-700' 
-                                      : 'bg-red-600 hover:bg-red-700'
+                                      ? 'bg-fresh-red-700' 
+                                      : 'bg-fresh-red-600 hover:bg-fresh-red-700'
                                   }`}
                                   title="Mark as Not Matched"
                                 >
@@ -638,21 +638,21 @@ const AdminDashboard: React.FC = () => {
                           <div className="flex items-center space-x-2">
                             <span className={`px-2 py-1 text-xs rounded-full ${
                               user.isPaidAgent
-                                ? 'bg-green-100 text-green-800'
-                                : 'bg-red-100 text-red-800'
+                                ? 'bg-brand-100 text-brand-800'
+                                : 'bg-fresh-red-100 text-fresh-red-800'
                             }`}>
                               {user.isPaidAgent ? 'Paid' : 'Unpaid'}
                             </span>
                             <div className="flex space-x-1">
                               <button
                                 onClick={() => handlePaymentStatus(user.uid, true)}
-                                className="bg-green-600 text-white px-2 py-1 text-xs rounded hover:bg-green-700 transition-colors"
+                                className="bg-brand-600 text-white px-2 py-1 text-xs rounded hover:bg-brand-700 transition-colors"
                               >
                                 Paid
                               </button>
                               <button
                                 onClick={() => handlePaymentStatus(user.uid, false)}
-                                className="bg-red-600 text-white px-2 py-1 text-xs rounded hover:bg-red-700 transition-colors"
+                                className="bg-fresh-red-600 text-white px-2 py-1 text-xs rounded hover:bg-fresh-red-700 transition-colors"
                               >
                                 Unpaid
                               </button>
@@ -662,11 +662,11 @@ const AdminDashboard: React.FC = () => {
                       </>
                     )}
                     {(activeTab === 'customers' || activeTab === 'agents') && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-text">
                         <button
                           onClick={() => handleDeleteUser(user.uid, user.email)}
                           disabled={deletingUser === user.uid}
-                          className={`text-red-600 hover:text-red-800 transition-colors p-2 rounded-full hover:bg-red-50 ${
+                          className={`text-fresh-red-600 hover:text-fresh-red-800 transition-colors p-2 rounded-full hover:bg-fresh-red-50 ${
                             deletingUser === user.uid ? 'opacity-50 cursor-not-allowed' : ''
                           }`}
                           title="Delete User from Database"
