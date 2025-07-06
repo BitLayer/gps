@@ -111,30 +111,30 @@ const EmailVerificationPage: React.FC = () => {
             </div>
 
             {/* Email Icon */}
-            <div className="w-20 h-20 bg-zesty-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Mail className="w-10 h-10 text-zesty-600" />
+            <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Mail className="w-10 h-10 text-yellow-600" />
             </div>
 
             {/* Title */}
-            <h1 className="text-2xl font-bold text-dark-text mb-4">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
               Verify Your Email
             </h1>
 
             {/* Message */}
-            <p className="text-gray-dark mb-2">
+            <p className="text-gray-600 mb-2">
               Your account is not verified. Please verify your email to proceed.
             </p>
             
-            <p className="text-sm text-gray-medium mb-6">
+            <p className="text-sm text-gray-500 mb-6">
               We sent a verification link to <strong>{currentUser?.email}</strong>
             </p>
 
             {/* Auto-check indicator */}
             {autoCheckEnabled && (
-              <div className="mb-6 p-3 bg-cool-blue-50 border border-cool-blue-200 rounded-lg">
+              <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                 <div className="flex items-center justify-center space-x-2">
-                  <Clock className="w-4 h-4 text-cool-blue-600 animate-pulse" />
-                  <p className="text-cool-blue-800 text-sm">
+                  <Clock className="w-4 h-4 text-blue-600 animate-pulse" />
+                  <p className="text-blue-800 text-sm">
                     Automatically checking for verification...
                   </p>
                 </div>
@@ -143,14 +143,14 @@ const EmailVerificationPage: React.FC = () => {
 
             {/* Status Messages */}
             {error && (
-              <div className="mb-6 p-4 bg-fresh-red-50 border border-fresh-red-200 rounded-lg">
-                <p className="text-fresh-red-800 text-sm">{error}</p>
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-800 text-sm">{error}</p>
               </div>
             )}
 
             {message && (
-              <div className="mb-6 p-4 bg-brand-50 border border-brand-200 rounded-lg">
-                <p className="text-brand-800 text-sm">{message}</p>
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-green-800 text-sm">{message}</p>
               </div>
             )}
 
@@ -160,7 +160,7 @@ const EmailVerificationPage: React.FC = () => {
               <button
                 onClick={handleResendVerification}
                 disabled={loading}
-                className="w-full bg-appetite-500 text-white py-3 px-4 rounded-lg font-medium hover:bg-appetite-600 focus:outline-none focus:ring-2 focus:ring-appetite-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-full bg-emerald-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
               >
                 {loading ? (
                   <>
@@ -179,7 +179,7 @@ const EmailVerificationPage: React.FC = () => {
               <button
                 onClick={handleVerificationComplete}
                 disabled={checkingVerification}
-                className="w-full border-2 border-brand-500 text-brand-600 py-3 px-4 rounded-lg font-medium hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-full border-2 border-emerald-600 text-emerald-600 py-3 px-4 rounded-lg font-medium hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
               >
                 {checkingVerification ? (
                   <>
@@ -197,18 +197,18 @@ const EmailVerificationPage: React.FC = () => {
               {/* Toggle Auto-check */}
               <button
                 onClick={() => setAutoCheckEnabled(!autoCheckEnabled)}
-                className="w-full text-sm text-gray-dark hover:text-dark-text py-2 transition-colors"
+                className="w-full text-sm text-gray-600 hover:text-gray-800 py-2 transition-colors"
               >
                 {autoCheckEnabled ? 'Disable Auto-check' : 'Enable Auto-check'}
               </button>
             </div>
 
             {/* Help Text */}
-            <div className="mt-8 pt-6 border-t border-gray-light">
-              <p className="text-xs text-gray-medium mb-3">
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <p className="text-xs text-gray-500 mb-3">
                 Didn't receive the email? Check your spam folder or try resending.
               </p>
-              <p className="text-xs text-gray-medium">
+              <p className="text-xs text-gray-500">
                 After clicking the verification link in your email, the system will automatically detect it or you can click "I've Verified My Email" above.
               </p>
             </div>

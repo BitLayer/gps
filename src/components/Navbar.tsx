@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({
   }, [searchQuery, selectedCategory, onSearch]);
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-light">
+    <nav className="bg-white shadow-lg sticky top-0 z-50">
       {/* Main container with proper responsive constraints */}
       <div className="w-full max-w-7xl mx-auto">
         {/* Responsive padding container */}
@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-3 py-2 border border-r-0 rounded-l-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 border-gray-light"
+                  className="px-3 py-2 border border-r-0 rounded-l-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>{cat}</option>
@@ -127,11 +127,11 @@ const Navbar: React.FC<NavbarProps> = ({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for products..."
-                  className="flex-1 px-4 py-2 border-t border-b border-gray-light focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
+                  className="flex-1 px-4 py-2 border-t border-b focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-appetite-500 text-white rounded-r-lg hover:bg-appetite-600 focus:outline-none focus:ring-2 focus:ring-appetite-500 transition-colors"
+                  className="px-4 py-2 bg-emerald-600 text-white rounded-r-lg hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors"
                 >
                   <Search className="w-4 h-4" />
                 </button>
@@ -143,18 +143,18 @@ const Navbar: React.FC<NavbarProps> = ({
               <button
                 key={location} // Keep button key for additional re-render guarantee
                 onClick={toggleLocationDropdown}
-                className="flex items-center space-x-2 px-3 py-2 border border-gray-light rounded-lg hover:bg-gray-50 whitespace-nowrap min-w-[160px] justify-between transition-colors"
+                className="flex items-center space-x-2 px-3 py-2 border rounded-lg hover:bg-gray-50 whitespace-nowrap min-w-[160px] justify-between transition-colors"
                 type="button"
               >
                 <div className="flex items-center space-x-1 flex-1 min-w-0">
-                  <MapPin className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                   {/* FIXED: Ensure proper text display without truncate */}
                   <span className="text-sm font-medium text-left max-w-[120px]">
                     {location || 'Select Location'}
                   </span>
                 </div>
                 <svg 
-                  className={`w-4 h-4 text-gray-medium transition-transform duration-200 flex-shrink-0 ${showLocationDropdown ? 'rotate-180' : ''}`} 
+                  className={`w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${showLocationDropdown ? 'rotate-180' : ''}`} 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -164,9 +164,9 @@ const Navbar: React.FC<NavbarProps> = ({
               </button>
               
               {showLocationDropdown && (
-                <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-light rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
-                  <div className="p-2 border-b bg-off-white">
-                    <p className="text-xs font-medium text-gray-dark">Select your delivery location</p>
+                <div className="absolute top-full left-0 mt-1 w-64 bg-white border rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
+                  <div className="p-2 border-b bg-gray-50">
+                    <p className="text-xs font-medium text-gray-600">Select your delivery location</p>
                   </div>
                   {DHAKA_LOCATIONS.map((loc) => (
                     <button
@@ -177,15 +177,15 @@ const Navbar: React.FC<NavbarProps> = ({
                         handleLocationSelect(loc);
                       }}
                       type="button"
-                      className={`block w-full text-left px-4 py-3 hover:bg-brand-50 text-sm transition-colors border-b border-gray-light last:border-b-0 ${
-                        location === loc ? 'bg-brand-100 text-brand-800 font-medium' : 'text-gray-700'
+                      className={`block w-full text-left px-4 py-3 hover:bg-emerald-50 text-sm transition-colors border-b border-gray-100 last:border-b-0 ${
+                        location === loc ? 'bg-emerald-100 text-emerald-800 font-medium' : 'text-gray-700'
                       }`}
                     >
                       <div className="flex items-center space-x-2">
-                        <MapPin className="w-4 h-4 text-gray-medium" />
+                        <MapPin className="w-4 h-4 text-gray-400" />
                         <span>{loc}</span>
                         {location === loc && (
-                          <span className="ml-auto text-brand-600 font-bold">✓</span>
+                          <span className="ml-auto text-emerald-600 font-bold">✓</span>
                         )}
                       </div>
                     </button>
@@ -201,18 +201,18 @@ const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={toggleLocationDropdown}
                   type="button"
-                  className="p-2 text-gray-dark hover:text-brand-500 relative transition-colors"
+                  className="p-2 text-gray-600 hover:text-emerald-600 relative transition-colors"
                 >
                   <MapPin className="w-5 h-5" />
                   {!location && (
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-fresh-red-500 rounded-full animate-pulse"></span>
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                   )}
                 </button>
                 
                 {showLocationDropdown && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white border border-gray-light rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
-                    <div className="p-2 border-b bg-off-white">
-                      <p className="text-xs font-medium text-gray-dark">Select your location</p>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white border rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
+                    <div className="p-2 border-b bg-gray-50">
+                      <p className="text-xs font-medium text-gray-600">Select your location</p>
                     </div>
                     {DHAKA_LOCATIONS.map((loc) => (
                       <button
@@ -223,15 +223,15 @@ const Navbar: React.FC<NavbarProps> = ({
                           handleLocationSelect(loc);
                         }}
                         type="button"
-                        className={`block w-full text-left px-4 py-3 hover:bg-brand-50 text-sm transition-colors border-b border-gray-light last:border-b-0 ${
-                          location === loc ? 'bg-brand-100 text-brand-800 font-medium' : 'text-gray-700'
+                        className={`block w-full text-left px-4 py-3 hover:bg-emerald-50 text-sm transition-colors border-b border-gray-100 last:border-b-0 ${
+                          location === loc ? 'bg-emerald-100 text-emerald-800 font-medium' : 'text-gray-700'
                         }`}
                       >
                         <div className="flex items-center space-x-2">
-                          <MapPin className="w-4 h-4 text-gray-medium" />
+                          <MapPin className="w-4 h-4 text-gray-400" />
                           <span>{loc}</span>
                           {location === loc && (
-                            <span className="ml-auto text-brand-600 font-bold">✓</span>
+                            <span className="ml-auto text-emerald-600 font-bold">✓</span>
                           )}
                         </div>
                       </button>
@@ -244,12 +244,12 @@ const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={onCartClick}
                 type="button"
-                className="relative p-2 text-gray-dark hover:text-brand-500 transition-colors"
+                className="relative p-2 text-gray-600 hover:text-emerald-600 transition-colors"
                 data-cart-trigger
               >
                 <ShoppingCart className="w-5 h-5" />
                 {cartItems.length > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-appetite-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
+                  <span className="absolute -top-0.5 -right-0.5 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse">
                     {cartItems.length > 9 ? '9+' : cartItems.length}
                   </span>
                 )}
@@ -260,14 +260,14 @@ const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={() => setShowProfileDropdown(!showProfileDropdown)}
                   type="button"
-                  className="p-2 text-gray-dark hover:text-brand-500 transition-colors"
+                  className="p-2 text-gray-600 hover:text-emerald-600 transition-colors"
                   data-profile-trigger
                 >
                   <User className="w-5 h-5" />
                 </button>
                 
                 {showProfileDropdown && (
-                  <div className="absolute top-full right-0 mt-1 w-48 bg-white border border-gray-light rounded-lg shadow-lg z-50">
+                  <div className="absolute top-full right-0 mt-1 w-48 bg-white border rounded-lg shadow-lg z-50">
                     <button
                       onClick={() => {
                         onProfileClick();
@@ -294,7 +294,7 @@ const Navbar: React.FC<NavbarProps> = ({
                         setShowProfileDropdown(false);
                       }}
                       type="button"
-                      className="block w-full text-left px-4 py-2 hover:bg-gray-50 text-sm text-fresh-red-600 transition-colors"
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-50 text-sm text-red-600 transition-colors"
                     >
                       Logout
                     </button>
@@ -305,12 +305,12 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Search Bar - Properly contained within navbar */}
-          <div className="lg:hidden border-t border-gray-light py-3">
+          <div className="lg:hidden border-t border-gray-100 py-3">
             <form onSubmit={handleSearch} className="flex space-x-2">
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-2 py-2 border border-gray-light rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 flex-shrink-0 min-w-0"
+                className="px-2 py-2 border rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 flex-shrink-0 min-w-0"
               >
                 {CATEGORIES.map((cat) => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -322,11 +322,11 @@ const Navbar: React.FC<NavbarProps> = ({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search products..."
-                  className="flex-1 px-3 py-2 border border-gray-light rounded-l-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 min-w-0"
+                  className="flex-1 px-3 py-2 border rounded-l-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 min-w-0"
                 />
                 <button
                   type="submit"
-                  className="px-3 py-2 bg-appetite-500 text-white rounded-r-lg hover:bg-appetite-600 transition-colors flex-shrink-0"
+                  className="px-3 py-2 bg-emerald-600 text-white rounded-r-lg hover:bg-emerald-700 transition-colors flex-shrink-0"
                 >
                   <Search className="w-4 h-4" />
                 </button>
@@ -336,8 +336,8 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Location Notice - Only show when no location selected */}
           {!location && (
-            <div className="lg:hidden bg-zesty-50 border-t border-zesty-200 py-2 -mx-2 sm:-mx-4">
-              <p className="text-xs text-zesty-800 text-center px-4">
+            <div className="lg:hidden bg-yellow-50 border-t border-yellow-200 py-2 -mx-2 sm:-mx-4">
+              <p className="text-xs text-yellow-800 text-center px-4">
                 📍 Please select your location to see available products
               </p>
             </div>
