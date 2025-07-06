@@ -88,7 +88,7 @@ const EmailVerificationPage: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-auth-gradient"
       style={{
         backgroundImage: 'url("https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop")',
         backgroundSize: 'cover',
@@ -96,8 +96,6 @@ const EmailVerificationPage: React.FC = () => {
         backgroundAttachment: 'fixed'
       }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      
       <div className="relative max-w-md w-full">
         <div className="bg-white rounded-xl shadow-2xl p-8">
           <div className="text-center">
@@ -143,13 +141,13 @@ const EmailVerificationPage: React.FC = () => {
 
             {/* Status Messages */}
             {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="mb-6 p-4 bg-red-100 border border-red-200 rounded-lg">
                 <p className="text-red-800 text-sm">{error}</p>
               </div>
             )}
 
             {message && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-lg">
                 <p className="text-green-800 text-sm">{message}</p>
               </div>
             )}
@@ -160,7 +158,7 @@ const EmailVerificationPage: React.FC = () => {
               <button
                 onClick={handleResendVerification}
                 disabled={loading}
-                className="w-full bg-emerald-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
               >
                 {loading ? (
                   <>
@@ -179,7 +177,7 @@ const EmailVerificationPage: React.FC = () => {
               <button
                 onClick={handleVerificationComplete}
                 disabled={checkingVerification}
-                className="w-full border-2 border-emerald-600 text-emerald-600 py-3 px-4 rounded-lg font-medium hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="w-full border-2 border-green-600 text-green-600 py-3 px-4 rounded-lg font-medium hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
               >
                 {checkingVerification ? (
                   <>

@@ -98,9 +98,9 @@ const LandingPage: React.FC = () => {
         />
       )}
 
-      {/* Background Image */}
+      {/* Background with gradient overlay */}
       <div 
-        className="fixed inset-0 w-full h-full"
+        className="fixed inset-0 w-full h-full bg-auth-gradient"
         style={{
           backgroundImage: 'url("https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop")',
           backgroundSize: 'cover',
@@ -108,9 +108,6 @@ const LandingPage: React.FC = () => {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      
-      {/* Dark Overlay */}
-      <div className="fixed inset-0 w-full h-full bg-black opacity-50" />
       
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -139,7 +136,7 @@ const LandingPage: React.FC = () => {
                       value={resetEmail}
                       onChange={(e) => setResetEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       required
                     />
                   </div>
@@ -148,7 +145,7 @@ const LandingPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 flex items-center justify-center"
+                  className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 flex items-center justify-center transition-colors"
                 >
                   {loading ? (
                     <>
@@ -163,7 +160,7 @@ const LandingPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowReset(false)}
-                  className="w-full text-emerald-600 hover:text-emerald-800 font-medium"
+                  className="w-full text-green-600 hover:text-green-800 font-medium transition-colors"
                 >
                   Back to Login
                 </button>
@@ -182,7 +179,7 @@ const LandingPage: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="Full Name"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         required
                       />
                     </div>
@@ -194,7 +191,7 @@ const LandingPage: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       placeholder="Email Address"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       required
                     />
                   </div>
@@ -206,7 +203,7 @@ const LandingPage: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         placeholder="Phone Number"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         required
                       />
                     </div>
@@ -218,13 +215,13 @@ const LandingPage: React.FC = () => {
                       value={formData.password}
                       onChange={(e) => setFormData({...formData, password: e.target.value})}
                       placeholder="Password"
-                      className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                      className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       required
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-3 text-gray-400 hover:text-gray-600 transition-colors"
                     >
                       {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
@@ -237,13 +234,13 @@ const LandingPage: React.FC = () => {
                         value={formData.confirmPassword}
                         onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
                         placeholder="Confirm Password"
-                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                         required
                       />
                       <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600 transition-colors"
                       >
                         {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                       </button>
@@ -257,14 +254,14 @@ const LandingPage: React.FC = () => {
                           type="checkbox"
                           checked={rememberMe}
                           onChange={(e) => setRememberMe(e.target.checked)}
-                          className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+                          className="rounded border-gray-300 text-green-600 focus:ring-green-500"
                         />
                         <span className="ml-2 text-sm text-gray-600">Remember me</span>
                       </label>
                       <button
                         type="button"
                         onClick={() => setShowReset(true)}
-                        className="text-sm text-emerald-600 hover:text-emerald-800"
+                        className="text-sm text-green-600 hover:text-green-800 transition-colors"
                       >
                         Forgot password?
                       </button>
@@ -275,7 +272,7 @@ const LandingPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50 flex items-center justify-center"
+                  className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 flex items-center justify-center transition-colors"
                 >
                   {loading ? (
                     <>
@@ -291,7 +288,7 @@ const LandingPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsLogin(!isLogin)}
-                    className="text-emerald-600 hover:text-emerald-800 font-medium"
+                    className="text-green-600 hover:text-green-800 font-medium transition-colors"
                   >
                     {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
                   </button>
