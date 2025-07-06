@@ -25,7 +25,7 @@ const AppRoutes: React.FC = () => {
   if (!userData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-brand-600"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-600"></div>
       </div>
     );
   }
@@ -38,25 +38,25 @@ const AppRoutes: React.FC = () => {
   // For non-admin users, check verification status in database
   if (!userData.verified) {
     return (
-      <div className="min-h-screen bg-off-white flex items-center justify-center">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center border border-gray-light">
-          <div className="w-16 h-16 bg-zesty-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-zesty-600 text-2xl">⚠️</span>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+          <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-yellow-600 text-2xl">⚠️</span>
           </div>
-          <h2 className="text-2xl font-bold text-dark-text mb-4">Account Not Verified</h2>
-          <p className="text-gray-dark mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Account Not Verified</h2>
+          <p className="text-gray-600 mb-6">
             Your account is not yet verified. Please check your email for verification instructions or contact support.
           </p>
           <div className="space-y-3">
             <button
               onClick={() => window.location.href = 'mailto:support@ghatpar.store?subject=Account Verification Issue'}
-              className="w-full bg-appetite-500 text-white py-3 rounded-lg font-medium hover:bg-appetite-600 transition-colors"
+              className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700"
             >
               Contact Support
             </button>
             <button
               onClick={() => window.location.reload()}
-              className="w-full border border-gray-light text-gray-dark py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50"
             >
               Refresh Status
             </button>
@@ -65,7 +65,7 @@ const AppRoutes: React.FC = () => {
                 // Sign out and redirect to landing page
                 window.location.href = '/';
               }}
-              className="w-full text-fresh-red-600 hover:text-fresh-red-800 font-medium py-2 transition-colors"
+              className="w-full text-red-600 hover:text-red-800 font-medium py-2"
             >
               Sign Out
             </button>

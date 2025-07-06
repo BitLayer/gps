@@ -118,21 +118,21 @@ const AgentDashboard: React.FC = () => {
   // Check if agent is paid
   if (userData?.role === 'agent' && !userData?.isPaidAgent) {
     return (
-      <div className="min-h-screen bg-off-white flex items-center justify-center p-4">
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full border border-gray-light">
-          <h2 className="text-xl font-bold text-fresh-red-600 mb-4">Payment Required</h2>
-          <p className="text-gray-dark mb-6 text-sm">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+          <h2 className="text-xl font-bold text-red-600 mb-4">Payment Required</h2>
+          <p className="text-gray-700 mb-6 text-sm">
             Your agent account is not paid. Please contact support to activate your account.
           </p>
           <button
             onClick={() => window.location.href = 'mailto:support@ghatpar.store?subject=Agent Payment Issue'}
-            className="w-full bg-appetite-500 text-white py-3 rounded-lg font-medium hover:bg-appetite-600 mb-3 transition-colors"
+            className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 mb-3"
           >
             Contact Support
           </button>
           <button
             onClick={logout}
-            className="w-full border border-gray-light text-gray-dark py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50"
           >
             Logout
           </button>
@@ -394,7 +394,7 @@ const AgentDashboard: React.FC = () => {
   const currentOrders = activeTab === 'pending' ? pendingOrders : myOrders;
 
   return (
-    <div className="min-h-screen bg-off-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Notification Component */}
       {notification && (
         <Notification
@@ -407,16 +407,16 @@ const AgentDashboard: React.FC = () => {
       )}
 
       {/* Mobile-First Responsive Navbar */}
-      <nav className="bg-white shadow-sm border-b border-gray-light">
+      <nav className="bg-white shadow-sm border-b">
         <div className="px-4">
           {/* Top Row - Location and Stats */}
-          <div className="flex items-center justify-between h-14 border-b border-gray-light">
+          <div className="flex items-center justify-between h-14 border-b border-gray-100">
             {/* Location Selector */}
             <div className="flex-1 max-w-xs">
               <select
                 value={selectedLocation}
                 onChange={(e) => handleLocationChange(e.target.value)}
-                className="w-full text-sm border border-gray-light rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-brand-500"
+                className="w-full text-sm border rounded-lg px-3 py-2 bg-white focus:ring-2 focus:ring-emerald-500"
               >
                 <option value="">Select Location</option>
                 {DHAKA_LOCATIONS.map(location => (
@@ -429,14 +429,14 @@ const AgentDashboard: React.FC = () => {
             <div className="flex items-center space-x-4 text-right">
               {/* Today's Income */}
               <div>
-                <div className="text-xs text-gray-dark">Today's Income</div>
-                <div className="text-sm font-bold text-brand-600">৳{todaysIncome}</div>
+                <div className="text-xs text-gray-600">Today's Income</div>
+                <div className="text-sm font-bold text-green-600">৳{todaysIncome}</div>
               </div>
 
               {/* Today's Payment */}
               <div>
-                <div className="text-xs text-gray-dark">Today's Payment</div>
-                <div className={`text-sm font-bold ${paymentStatus === 'complete' ? 'text-brand-600' : 'text-appetite-600'}`}>
+                <div className="text-xs text-gray-600">Today's Payment</div>
+                <div className={`text-sm font-bold ${paymentStatus === 'complete' ? 'text-green-600' : 'text-orange-600'}`}>
                   {paymentStatus === 'complete' ? 'Complete' : `৳${todaysPayment}`}
                 </div>
               </div>
@@ -444,7 +444,7 @@ const AgentDashboard: React.FC = () => {
               {/* Menu Button */}
               <button
                 onClick={() => setShowPayment(true)}
-                className="p-2 text-gray-dark hover:text-brand-500 transition-colors"
+                className="p-2 text-gray-600 hover:text-emerald-600"
                 disabled={paymentStatus === 'complete'}
               >
                 <User className="w-5 h-5" />
@@ -458,20 +458,20 @@ const AgentDashboard: React.FC = () => {
               <div className="flex space-x-1 flex-1">
                 <button
                   onClick={() => setActiveTab('pending')}
-                  className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium ${
                     activeTab === 'pending'
-                      ? 'bg-appetite-500 text-white'
-                      : 'bg-gray-light text-gray-dark hover:bg-gray-200'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   Pending ({pendingOrders.length})
                 </button>
                 <button
                   onClick={() => setActiveTab('accepted')}
-                  className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium ${
                     activeTab === 'accepted'
-                      ? 'bg-appetite-500 text-white'
-                      : 'bg-gray-light text-gray-dark hover:bg-gray-200'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   My Orders ({myOrders.length})
@@ -480,7 +480,7 @@ const AgentDashboard: React.FC = () => {
               
               <button
                 onClick={() => setShowDeliveryHistory(true)}
-                className="ml-2 px-3 py-2 bg-cool-blue-100 text-cool-blue-700 rounded-lg text-sm font-medium hover:bg-cool-blue-200 transition-colors"
+                className="ml-2 px-3 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200"
               >
                 History
               </button>
@@ -491,14 +491,14 @@ const AgentDashboard: React.FC = () => {
 
       {/* Payment Window Notice */}
       {isPaymentWindow() && todaysPayment > 0 && paymentStatus !== 'complete' && (
-        <div className="bg-zesty-100 border-l-4 border-zesty-500 p-4">
+        <div className="bg-orange-100 border-l-4 border-orange-500 p-4">
           <div className="px-4">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Clock className="h-5 w-5 text-zesty-500" />
+                <Clock className="h-5 w-5 text-orange-500" />
               </div>
               <div className="ml-3">
-                <p className="text-sm text-zesty-700">
+                <p className="text-sm text-orange-700">
                   <strong>Payment Window:</strong> You can submit your payment until 5:59 AM. 
                   Payment due: ৳{todaysPayment}
                 </p>
@@ -511,25 +511,25 @@ const AgentDashboard: React.FC = () => {
       <main className="px-4 py-4">
         {!selectedLocation ? (
           <div className="text-center py-20">
-            <MapPin className="w-16 h-16 text-gray-medium mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-gray-dark mb-2">Select Your Location</h2>
-            <p className="text-gray-medium">Choose a location to see available orders</p>
+            <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <h2 className="text-xl font-bold text-gray-600 mb-2">Select Your Location</h2>
+            <p className="text-gray-500">Choose a location to see available orders</p>
           </div>
         ) : (
           <div className="space-y-4">
             {currentOrders.length === 0 ? (
               <div className="text-center py-20">
-                <div className="text-gray-medium mb-4">
+                <div className="text-gray-400 mb-4">
                   {activeTab === 'pending' ? (
                     <Clock className="w-16 h-16 mx-auto" />
                   ) : (
                     <User className="w-16 h-16 mx-auto" />
                   )}
                 </div>
-                <h2 className="text-xl font-bold text-gray-dark mb-2">
+                <h2 className="text-xl font-bold text-gray-600 mb-2">
                   {activeTab === 'pending' ? 'No Pending Orders' : 'No Accepted Orders'}
                 </h2>
-                <p className="text-gray-medium text-sm">
+                <p className="text-gray-500 text-sm">
                   {activeTab === 'pending' 
                     ? 'Check back later for new orders' 
                     : 'Accept orders from the Pending tab'
@@ -538,21 +538,21 @@ const AgentDashboard: React.FC = () => {
               </div>
             ) : (
               currentOrders.map(order => (
-                <div key={order.id} className="bg-white rounded-lg shadow-md p-4 border border-gray-light">
+                <div key={order.id} className="bg-white rounded-lg shadow-md p-4">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
-                        <span className="font-bold text-lg text-dark-text">{order.customerName}</span>
+                        <span className="font-bold text-lg">{order.customerName}</span>
                         <a
                           href={`tel:${order.customerPhone}`}
-                          className="text-brand-600 hover:text-brand-800 transition-colors"
+                          className="text-emerald-600 hover:text-emerald-800"
                         >
                           <Phone className="w-4 h-4" />
                         </a>
                       </div>
-                      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-dark">
+                      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
                         {order.deliveryType === 'emergency' ? (
-                          <div className="flex items-center space-x-1 text-appetite-600">
+                          <div className="flex items-center space-x-1 text-orange-600">
                             <Zap className="w-4 h-4" />
                             <span className="font-medium">Emergency (৳40 income)</span>
                           </div>
@@ -564,7 +564,7 @@ const AgentDashboard: React.FC = () => {
                         )}
                         <span>{order.items.length} items</span>
                         <span className="font-semibold">৳{order.total}</span>
-                        <span className="text-xs text-gray-medium">
+                        <span className="text-xs text-gray-500">
                           {formatRelativeTime(order.createdAt)}
                         </span>
                       </div>
@@ -573,7 +573,7 @@ const AgentDashboard: React.FC = () => {
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => toggleOrderExpansion(order.id)}
-                        className="p-2 text-gray-medium hover:text-gray-dark transition-colors"
+                        className="p-2 text-gray-400 hover:text-gray-600"
                       >
                         {expandedOrders.has(order.id) ? (
                           <ChevronUp className="w-5 h-5" />
@@ -585,14 +585,14 @@ const AgentDashboard: React.FC = () => {
                       {activeTab === 'pending' ? (
                         <button
                           onClick={() => handleAcceptOrder(order)}
-                          className="bg-appetite-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-appetite-600 transition-colors"
+                          className="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700"
                         >
                           Accept
                         </button>
                       ) : (
                         <button
                           onClick={() => handleDeliverOrder(order)}
-                          className="bg-cool-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cool-blue-700 transition-colors"
+                          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
                         >
                           Delivered
                         </button>
@@ -600,42 +600,42 @@ const AgentDashboard: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="text-sm text-gray-dark mb-2">
+                  <div className="text-sm text-gray-600 mb-2">
                     <strong>Address:</strong> {order.deliveryAddress}
                   </div>
 
                   {expandedOrders.has(order.id) && (
-                    <div className="border-t border-gray-light pt-4 mt-4">
-                      <h4 className="font-medium mb-2 text-dark-text">Order Items:</h4>
+                    <div className="border-t pt-4 mt-4">
+                      <h4 className="font-medium mb-2">Order Items:</h4>
                       <div className="space-y-2">
                         {order.items.map((item, index) => (
                           <div key={index} className="flex justify-between items-center text-sm">
-                            <span className="text-dark-text">{item.name} x {item.quantity}</span>
-                            <span className="text-dark-text">৳{item.price * item.quantity}</span>
+                            <span>{item.name} x {item.quantity}</span>
+                            <span>৳{item.price * item.quantity}</span>
                           </div>
                         ))}
                       </div>
-                      <div className="border-t border-gray-light pt-2 mt-2">
+                      <div className="border-t pt-2 mt-2">
                         <div className="flex justify-between items-center font-medium">
-                          <span className="text-dark-text">Subtotal</span>
-                          <span className="text-dark-text">৳{order.subtotal}</span>
+                          <span>Subtotal</span>
+                          <span>৳{order.subtotal}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-dark-text">Delivery Charge</span>
-                          <span className="text-dark-text">৳{order.deliveryCharge}</span>
+                          <span>Delivery Charge</span>
+                          <span>৳{order.deliveryCharge}</span>
                         </div>
-                        <div className="flex justify-between items-center font-bold text-lg border-t border-gray-light pt-2">
-                          <span className="text-dark-text">Total</span>
-                          <span className="text-dark-text">৳{order.total}</span>
+                        <div className="flex justify-between items-center font-bold text-lg border-t pt-2">
+                          <span>Total</span>
+                          <span>৳{order.total}</span>
                         </div>
                       </div>
                       {order.specialRequest && (
-                        <div className="mt-4 p-3 bg-zesty-50 rounded-lg border border-zesty-200">
-                          <strong className="text-zesty-800">Special Request:</strong>
-                          <p className="text-zesty-700">{order.specialRequest}</p>
+                        <div className="mt-4 p-3 bg-yellow-50 rounded-lg">
+                          <strong className="text-yellow-800">Special Request:</strong>
+                          <p className="text-yellow-700">{order.specialRequest}</p>
                         </div>
                       )}
-                      <div className="mt-2 text-xs text-gray-medium">
+                      <div className="mt-2 text-xs text-gray-500">
                         <div>Order placed: {formatDateTime(order.createdAt)}</div>
                         {order.acceptedAt && (
                           <div>Accepted: {formatDateTime(order.acceptedAt)}</div>
@@ -653,12 +653,12 @@ const AgentDashboard: React.FC = () => {
       {/* Delivery History Modal */}
       {showDeliveryHistory && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="delivery-history-modal bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-gray-light">
-            <div className="sticky top-0 bg-white border-b border-gray-light px-6 py-4 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-dark-text">Delivery History</h2>
+          <div className="delivery-history-modal bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
+              <h2 className="text-xl font-bold">Delivery History</h2>
               <button
                 onClick={() => setShowDeliveryHistory(false)}
-                className="text-gray-medium hover:text-gray-dark transition-colors"
+                className="text-gray-500 hover:text-gray-700"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -667,18 +667,18 @@ const AgentDashboard: React.FC = () => {
             <div className="p-6">
               {/* Monthly Statistics - Removed Monthly Payment */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-cool-blue-50 p-4 rounded-lg text-center border border-cool-blue-200">
-                  <div className="text-2xl font-bold text-cool-blue-600">{monthlyStats.totalDeliveries}</div>
-                  <div className="text-sm text-cool-blue-800">Monthly Deliveries</div>
+                <div className="bg-blue-50 p-4 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-blue-600">{monthlyStats.totalDeliveries}</div>
+                  <div className="text-sm text-blue-800">Monthly Deliveries</div>
                 </div>
-                <div className="bg-brand-50 p-4 rounded-lg text-center border border-brand-200">
-                  <div className="text-2xl font-bold text-brand-600">৳{monthlyStats.totalIncome}</div>
-                  <div className="text-sm text-brand-800">Monthly Income</div>
+                <div className="bg-green-50 p-4 rounded-lg text-center">
+                  <div className="text-2xl font-bold text-green-600">৳{monthlyStats.totalIncome}</div>
+                  <div className="text-sm text-green-800">Monthly Income</div>
                 </div>
               </div>
 
               {/* Daily Summary */}
-              <h3 className="text-lg font-semibold mb-4 flex items-center text-dark-text">
+              <h3 className="text-lg font-semibold mb-4 flex items-center">
                 <Calendar className="w-5 h-5 mr-2" />
                 Daily Summary
               </h3>
@@ -687,19 +687,19 @@ const AgentDashboard: React.FC = () => {
                   .sort(([a], [b]) => b.localeCompare(a))
                   .slice(0, 10)
                   .map(([date, stats]) => (
-                  <div key={date} className="border border-gray-light rounded-lg p-4">
+                  <div key={date} className="border rounded-lg p-4">
                     <div className="flex justify-between items-center">
                       <div>
-                        <div className="font-medium text-dark-text">{formatDate(date)}</div>
-                        <div className="text-sm text-gray-dark">
+                        <div className="font-medium">{formatDate(date)}</div>
+                        <div className="text-sm text-gray-600">
                           {stats.deliveries} deliveries
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm font-medium text-brand-600">
+                        <div className="text-sm font-medium text-green-600">
                           Income: ৳{stats.income}
                         </div>
-                        <div className="text-sm font-medium text-appetite-600">
+                        <div className="text-sm font-medium text-orange-600">
                           Payment: ৳{stats.payment}
                         </div>
                       </div>
@@ -715,12 +715,12 @@ const AgentDashboard: React.FC = () => {
       {/* Payment Modal */}
       {showPayment && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="payment-modal bg-white rounded-lg w-full max-w-md border border-gray-light">
-            <div className="border-b border-gray-light px-6 py-4 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-dark-text">Submit Payment</h2>
+          <div className="payment-modal bg-white rounded-lg w-full max-w-md">
+            <div className="border-b px-6 py-4 flex items-center justify-between">
+              <h2 className="text-xl font-bold">Submit Payment</h2>
               <button
                 onClick={() => setShowPayment(false)}
-                className="text-gray-medium hover:text-gray-dark transition-colors"
+                className="text-gray-500 hover:text-gray-700"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -729,50 +729,50 @@ const AgentDashboard: React.FC = () => {
             <div className="p-6">
               {/* Today's Income & Payment */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-brand-50 p-4 rounded-lg text-center border border-brand-200">
-                  <div className="text-xl font-bold text-brand-600">৳{todaysIncome}</div>
-                  <div className="text-sm text-brand-800">Today's Income</div>
+                <div className="bg-green-50 p-4 rounded-lg text-center">
+                  <div className="text-xl font-bold text-green-600">৳{todaysIncome}</div>
+                  <div className="text-sm text-green-800">Today's Income</div>
                 </div>
-                <div className="bg-appetite-50 p-4 rounded-lg text-center border border-appetite-200">
-                  <div className={`text-xl font-bold ${paymentStatus === 'complete' ? 'text-brand-600' : 'text-appetite-600'}`}>
+                <div className="bg-orange-50 p-4 rounded-lg text-center">
+                  <div className={`text-xl font-bold ${paymentStatus === 'complete' ? 'text-green-600' : 'text-orange-600'}`}>
                     {paymentStatus === 'complete' ? 'Complete' : `৳${todaysPayment}`}
                   </div>
-                  <div className="text-sm text-appetite-800">Today's Payment</div>
+                  <div className="text-sm text-orange-800">Today's Payment</div>
                 </div>
               </div>
 
               <div className="mb-4">
                 {todaysPayment === 0 && (
-                  <div className="text-sm text-gray-medium mt-1">
+                  <div className="text-sm text-gray-500 mt-1">
                     No deliveries completed for this period
                   </div>
                 )}
                 {paymentStatus === 'complete' && (
-                  <div className="text-sm text-brand-600 mt-1">
+                  <div className="text-sm text-green-600 mt-1">
                     Payment already completed for this period
                   </div>
                 )}
                 {!isPaymentWindow() && (
-                  <div className="text-sm text-appetite-600 mt-1">
+                  <div className="text-sm text-orange-600 mt-1">
                     Payment window: 12:00 AM to 5:59 AM only
                   </div>
                 )}
-                <div className="text-sm text-gray-dark mt-2 flex items-center space-x-2">
+                <div className="text-sm text-gray-600 mt-2 flex items-center space-x-2">
                   <span>Admin bKash: {ADMIN_BKASH}</span>
                   <button
                     onClick={copyAdminBkash}
-                    className={`p-1 rounded transition-colors ${copySuccess ? 'text-brand-600' : 'text-gray-medium hover:text-gray-dark'}`}
+                    className={`p-1 rounded ${copySuccess ? 'text-green-600' : 'text-gray-400 hover:text-gray-600'}`}
                     title="Copy bKash number"
                   >
                     <Copy className="w-4 h-4" />
                   </button>
                   {copySuccess && (
-                    <span className="text-xs text-brand-600">Copied!</span>
+                    <span className="text-xs text-green-600">Copied!</span>
                   )}
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-dark mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Transaction ID
                 </label>
                 <input
@@ -780,7 +780,7 @@ const AgentDashboard: React.FC = () => {
                   value={transactionId}
                   onChange={(e) => setTransactionId(e.target.value)}
                   placeholder="Enter full transaction ID"
-                  className="w-full px-3 py-2 border border-gray-light rounded-lg focus:ring-2 focus:ring-brand-500"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500"
                   disabled={paymentStatus === 'complete' || !isPaymentWindow()}
                 />
               </div>
@@ -788,13 +788,13 @@ const AgentDashboard: React.FC = () => {
                 <button
                   onClick={handlePayment}
                   disabled={todaysPayment === 0 || paymentStatus === 'complete' || !isPaymentWindow()}
-                  className="flex-1 bg-appetite-500 text-white py-2 rounded-lg hover:bg-appetite-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Submit Payment
                 </button>
                 <button
                   onClick={logout}
-                  className="px-4 py-2 border border-fresh-red-300 text-fresh-red-700 rounded-lg hover:bg-fresh-red-50 transition-colors"
+                  className="px-4 py-2 border border-red-300 text-red-700 rounded-lg hover:bg-red-50"
                 >
                   Logout
                 </button>

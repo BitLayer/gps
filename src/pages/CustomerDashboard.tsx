@@ -517,15 +517,15 @@ const CustomerDashboard: React.FC = () => {
   // Format order status
   const getOrderStatusColor = (status: string) => {
     switch (status) {
-      case 'pending': return 'bg-zesty-100 text-zesty-800';
-      case 'accepted': return 'bg-cool-blue-100 text-cool-blue-800';
-      case 'delivered': return 'bg-brand-100 text-brand-800';
-      default: return 'bg-gray-light text-gray-dark';
+      case 'pending': return 'bg-yellow-100 text-yellow-800';
+      case 'accepted': return 'bg-blue-100 text-blue-800';
+      case 'delivered': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
     }
   };
 
   return (
-    <div className="min-h-screen bg-off-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Notification Component */}
       {notification && (
         <Notification
@@ -555,12 +555,12 @@ const CustomerDashboard: React.FC = () => {
         {(searchQuery.trim() || selectedCategory !== 'All') && (
           <div className="mb-6 sm:mb-8">
             <div className="flex items-center justify-between mb-3 sm:mb-4">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-dark-text">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
                 {searchQuery.trim() 
                   ? `Search results for "${searchQuery}"` 
                   : `${selectedCategory} Products`
                 }
-                <span className="text-sm font-normal text-gray-medium ml-2">
+                <span className="text-sm font-normal text-gray-500 ml-2">
                   ({filteredProducts.length} items)
                 </span>
               </h2>
@@ -579,9 +579,9 @@ const CustomerDashboard: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12">
-                <Package className="w-16 h-16 text-gray-medium mx-auto mb-4" />
-                <p className="text-gray-medium text-lg mb-2">No products found</p>
-                <p className="text-gray-medium">Try adjusting your search or filters</p>
+                <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-500 text-lg mb-2">No products found</p>
+                <p className="text-gray-400">Try adjusting your search or filters</p>
               </div>
             )}
           </div>
@@ -597,16 +597,16 @@ const CustomerDashboard: React.FC = () => {
               return (
                 <div key={category} className="mb-6 sm:mb-8">
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-dark-text">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
                       {category}
-                      <span className="text-sm font-normal text-gray-medium ml-2">
+                      <span className="text-sm font-normal text-gray-500 ml-2">
                         ({categoryProducts.length} items)
                       </span>
                     </h2>
                     {/* Always show View All button if there are products in the category */}
                     <button
                       onClick={() => setShowAllCategory(category)}
-                      className="flex items-center text-brand-600 hover:text-brand-800 font-medium text-sm md:text-base transition-colors"
+                      className="flex items-center text-emerald-600 hover:text-emerald-800 font-medium text-sm md:text-base transition-colors"
                       data-category-trigger
                     >
                       View All <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
@@ -633,19 +633,19 @@ const CustomerDashboard: React.FC = () => {
         {!searchQuery.trim() && selectedCategory === 'All' && 
          categories.every(cat => getProductsByCategory(cat).length === 0) && (
           <div className="text-center py-20">
-            <Package className="w-20 h-20 text-gray-medium mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-dark mb-2">No Products Available</h3>
-            <p className="text-gray-medium">Products will appear here once they are added to the inventory</p>
+            <Package className="w-20 h-20 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">No Products Available</h3>
+            <p className="text-gray-500">Products will appear here once they are added to the inventory</p>
           </div>
         )}
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-light py-4 sm:py-6 mt-8 sm:mt-12">
+      <footer className="bg-white border-t py-4 sm:py-6 mt-8 sm:mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <button
             onClick={handleContactSupport}
-            className="flex items-center justify-center mx-auto text-brand-600 hover:text-brand-800 font-medium text-sm sm:text-base transition-colors"
+            className="flex items-center justify-center mx-auto text-emerald-600 hover:text-emerald-800 font-medium text-sm sm:text-base transition-colors"
           >
             <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             Contact Support
@@ -670,9 +670,9 @@ const CustomerDashboard: React.FC = () => {
       {/* Profile Modal */}
       {showProfile && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="profile-modal bg-white rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto border border-gray-light">
-            <div className="sticky top-0 bg-white border-b border-gray-light px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
-              <h2 className="text-lg sm:text-xl font-bold flex items-center text-dark-text">
+          <div className="profile-modal bg-white rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
+              <h2 className="text-lg sm:text-xl font-bold flex items-center">
                 <User className="w-5 h-5 mr-2" />
                 Profile
               </h2>
@@ -682,7 +682,7 @@ const CustomerDashboard: React.FC = () => {
                   setEditingProfile(false);
                   setProfileErrors({});
                 }}
-                className="text-gray-medium hover:text-gray-dark p-1 rounded-full hover:bg-gray-light transition-colors"
+                className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -692,7 +692,7 @@ const CustomerDashboard: React.FC = () => {
               {editingProfile ? (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-dark mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Full Name *
                     </label>
                     <input
@@ -704,13 +704,13 @@ const CustomerDashboard: React.FC = () => {
                           setProfileErrors({...profileErrors, name: ''});
                         }
                       }}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-500 text-sm sm:text-base ${
-                        profileErrors.name ? 'border-fresh-red-500' : 'border-gray-light'
+                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 text-sm sm:text-base ${
+                        profileErrors.name ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Enter your full name"
                     />
                     {profileErrors.name && (
-                      <div className="flex items-center mt-1 text-fresh-red-600 text-xs">
+                      <div className="flex items-center mt-1 text-red-600 text-xs">
                         <AlertCircle className="w-3 h-3 mr-1" />
                         {profileErrors.name}
                       </div>
@@ -718,7 +718,7 @@ const CustomerDashboard: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-dark mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Phone Number *
                     </label>
                     <input
@@ -730,13 +730,13 @@ const CustomerDashboard: React.FC = () => {
                           setProfileErrors({...profileErrors, phone: ''});
                         }
                       }}
-                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-500 text-sm sm:text-base ${
-                        profileErrors.phone ? 'border-fresh-red-500' : 'border-gray-light'
+                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 text-sm sm:text-base ${
+                        profileErrors.phone ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="01XXXXXXXXX"
                     />
                     {profileErrors.phone && (
-                      <div className="flex items-center mt-1 text-fresh-red-600 text-xs">
+                      <div className="flex items-center mt-1 text-red-600 text-xs">
                         <AlertCircle className="w-3 h-3 mr-1" />
                         {profileErrors.phone}
                       </div>
@@ -747,7 +747,7 @@ const CustomerDashboard: React.FC = () => {
                     <button
                       onClick={handleProfileUpdate}
                       disabled={profileLoading}
-                      className="flex-1 bg-appetite-500 text-white py-2 rounded-lg hover:bg-appetite-600 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base flex items-center justify-center transition-colors"
+                      className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base flex items-center justify-center transition-colors"
                     >
                       {profileLoading ? (
                         <>
@@ -771,7 +771,7 @@ const CustomerDashboard: React.FC = () => {
                         setProfileErrors({});
                       }}
                       disabled={profileLoading}
-                      className="flex-1 border border-gray-light text-gray-dark py-2 rounded-lg hover:bg-gray-50 disabled:opacity-50 text-sm sm:text-base transition-colors"
+                      className="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 disabled:opacity-50 text-sm sm:text-base transition-colors"
                     >
                       Cancel
                     </button>
@@ -779,37 +779,37 @@ const CustomerDashboard: React.FC = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="bg-off-white p-4 rounded-lg border border-gray-light">
-                    <div className="text-xs text-gray-medium mb-1">User ID</div>
-                    <div className="text-xs font-mono text-gray-dark break-all">{userData?.uid}</div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-xs text-gray-500 mb-1">User ID</div>
+                    <div className="text-xs font-mono text-gray-700 break-all">{userData?.uid}</div>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-gray-dark mb-1">Name</div>
-                    <div className="text-sm sm:text-base text-dark-text">{userData?.name || 'Not set'}</div>
+                    <div className="text-sm font-medium text-gray-700 mb-1">Name</div>
+                    <div className="text-sm sm:text-base text-gray-900">{userData?.name || 'Not set'}</div>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-gray-dark mb-1">Email</div>
-                    <div className="text-sm sm:text-base text-dark-text">{userData?.email}</div>
+                    <div className="text-sm font-medium text-gray-700 mb-1">Email</div>
+                    <div className="text-sm sm:text-base text-gray-900">{userData?.email}</div>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-gray-dark mb-1">Phone</div>
-                    <div className="text-sm sm:text-base text-dark-text">{userData?.phone || 'Not set'}</div>
+                    <div className="text-sm font-medium text-gray-700 mb-1">Phone</div>
+                    <div className="text-sm sm:text-base text-gray-900">{userData?.phone || 'Not set'}</div>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-gray-dark mb-1">Location</div>
-                    <div className="flex items-center text-sm sm:text-base text-dark-text">
-                      <MapPin className="w-4 h-4 mr-1 text-gray-medium" />
+                    <div className="text-sm font-medium text-gray-700 mb-1">Location</div>
+                    <div className="flex items-center text-sm sm:text-base text-gray-900">
+                      <MapPin className="w-4 h-4 mr-1 text-gray-500" />
                       {userLocation || 'Not set'}
                     </div>
                   </div>
                   
-                  <div className="bg-cool-blue-50 p-3 rounded-lg border border-cool-blue-200">
-                    <div className="text-xs text-cool-blue-800 font-medium mb-1">Note</div>
-                    <div className="text-xs text-cool-blue-700">
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="text-xs text-blue-800 font-medium mb-1">Note</div>
+                    <div className="text-xs text-blue-700">
                       To change your location, use the location selector in the navbar above.
                     </div>
                   </div>
@@ -822,7 +822,7 @@ const CustomerDashboard: React.FC = () => {
                         phone: userData?.phone || ''
                       });
                     }}
-                    className="w-full bg-appetite-500 text-white py-2 rounded-lg hover:bg-appetite-600 text-sm sm:text-base flex items-center justify-center transition-colors"
+                    className="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 text-sm sm:text-base flex items-center justify-center transition-colors"
                   >
                     <Edit3 className="w-4 h-4 mr-2" />
                     Edit Profile
@@ -837,15 +837,15 @@ const CustomerDashboard: React.FC = () => {
       {/* Order History Modal */}
       {showOrderHistory && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="order-history-modal bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-gray-light">
-            <div className="sticky top-0 bg-white border-b border-gray-light px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
-              <h2 className="text-lg sm:text-xl font-bold flex items-center text-dark-text">
+          <div className="order-history-modal bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
+              <h2 className="text-lg sm:text-xl font-bold flex items-center">
                 <Package className="w-5 h-5 mr-2" />
                 Order History
               </h2>
               <button
                 onClick={() => setShowOrderHistory(false)}
-                className="text-gray-medium hover:text-gray-dark p-1 rounded-full hover:bg-gray-light transition-colors"
+                className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -854,20 +854,20 @@ const CustomerDashboard: React.FC = () => {
             <div className="p-4 sm:p-6">
               {orders.length === 0 ? (
                 <div className="text-center py-12">
-                  <Package className="w-16 h-16 text-gray-medium mx-auto mb-4" />
-                  <p className="text-gray-medium text-lg mb-2">No orders yet</p>
-                  <p className="text-gray-medium">Your order history will appear here</p>
+                  <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500 text-lg mb-2">No orders yet</p>
+                  <p className="text-gray-400">Your order history will appear here</p>
                 </div>
               ) : (
                 <div className="space-y-4">
                   {orders.map(order => (
-                    <div key={order.id} className="border border-gray-light rounded-lg p-4 hover:bg-off-white transition-colors">
+                    <div key={order.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
                       <div className="flex justify-between items-start mb-3">
                         <div>
-                          <div className="font-medium text-sm sm:text-base text-dark-text">
+                          <div className="font-medium text-sm sm:text-base">
                             Order #{order.id?.slice(-6) || 'N/A'}
                           </div>
-                          <div className="text-xs text-gray-medium">
+                          <div className="text-xs text-gray-500">
                             {new Date(order.createdAt).toLocaleDateString('en-US', {
                               year: 'numeric',
                               month: 'short',
@@ -886,7 +886,7 @@ const CustomerDashboard: React.FC = () => {
                             <button
                               onClick={() => handleCancelOrder(order.id)}
                               disabled={cancellingOrder === order.id}
-                              className="px-3 py-1 text-xs font-medium text-fresh-red-600 hover:text-fresh-red-800 hover:bg-fresh-red-50 border border-fresh-red-300 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                              className="px-3 py-1 text-xs font-medium text-red-600 hover:text-red-800 hover:bg-red-50 border border-red-300 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                               title="Cancel Order"
                             >
                               {cancellingOrder === order.id ? 'Cancelling...' : 'Cancel Order'}
@@ -897,33 +897,33 @@ const CustomerDashboard: React.FC = () => {
                       
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                          <div className="text-gray-dark">Items</div>
-                          <div className="font-medium text-dark-text">{order.items.length} items</div>
+                          <div className="text-gray-600">Items</div>
+                          <div className="font-medium">{order.items.length} items</div>
                         </div>
                         <div>
-                          <div className="text-gray-dark">Total</div>
-                          <div className="font-medium text-brand-600">৳{order.total}</div>
+                          <div className="text-gray-600">Total</div>
+                          <div className="font-medium text-emerald-600">৳{order.total}</div>
                         </div>
                         <div>
-                          <div className="text-gray-dark">Delivery</div>
-                          <div className="font-medium text-dark-text capitalize">{order.deliveryType}</div>
+                          <div className="text-gray-600">Delivery</div>
+                          <div className="font-medium capitalize">{order.deliveryType}</div>
                         </div>
                         <div>
-                          <div className="text-gray-dark">Location</div>
-                          <div className="font-medium text-dark-text">{order.location}</div>
+                          <div className="text-gray-600">Location</div>
+                          <div className="font-medium">{order.location}</div>
                         </div>
                       </div>
                       
                       {order.agentName && (
-                        <div className="mt-3 pt-3 border-t border-gray-light">
-                          <div className="text-xs text-gray-dark mb-1">Agent Details</div>
+                        <div className="mt-3 pt-3 border-t">
+                          <div className="text-xs text-gray-600 mb-1">Agent Details</div>
                           <div className="flex items-center text-sm">
-                            <User className="w-4 h-4 mr-1 text-gray-medium" />
-                            <span className="font-medium mr-2 text-dark-text">{order.agentName}</span>
+                            <User className="w-4 h-4 mr-1 text-gray-500" />
+                            <span className="font-medium mr-2">{order.agentName}</span>
                             {order.agentPhone && (
                               <a 
                                 href={`tel:${order.agentPhone}`}
-                                className="flex items-center text-brand-600 hover:text-brand-800 transition-colors"
+                                className="flex items-center text-emerald-600 hover:text-emerald-800"
                               >
                                 <Phone className="w-3 h-3 mr-1" />
                                 {order.agentPhone}
@@ -944,17 +944,17 @@ const CustomerDashboard: React.FC = () => {
       {/* Category View All Modal - FIXED VERTICAL SPACING */}
       {showAllCategory && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="category-modal bg-white rounded-lg w-full max-w-7xl max-h-[90vh] overflow-y-auto border border-gray-light">
-            <div className="sticky top-0 bg-white border-b border-gray-light px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
-              <h2 className="text-lg sm:text-xl font-bold text-dark-text">
+          <div className="category-modal bg-white rounded-lg w-full max-w-7xl max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-lg">
+              <h2 className="text-lg sm:text-xl font-bold">
                 {showAllCategory}
-                <span className="text-sm font-normal text-gray-medium ml-2">
+                <span className="text-sm font-normal text-gray-500 ml-2">
                   ({getProductsByCategory(showAllCategory).length} items)
                 </span>
               </h2>
               <button
                 onClick={() => setShowAllCategory(null)}
-                className="text-gray-medium hover:text-gray-dark p-1 rounded-full hover:bg-gray-light transition-colors"
+                className="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
